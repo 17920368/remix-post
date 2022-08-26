@@ -17,9 +17,7 @@ function Layout() {
   return (
     <>
       <header>
-        <Link to="/">
-          <h1>Remix</h1>
-        </Link>
+        <h1>Remix</h1>
       </header>
       <Outlet />
       <footer>
@@ -43,16 +41,12 @@ export default function App() {
     <html lang="es">
       <head>
         <Meta />
-
         <Links />
       </head>
-
       <body>
-        <Layout></Layout>
+        <Layout />
         <ScrollRestoration />
-
         <Scripts />
-
         <LiveReload />
       </body>
     </html>

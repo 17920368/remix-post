@@ -1,27 +1,10 @@
 import { Link, useLoaderData } from "@remix-run/react";
-//fetching data with "loader"
-export const loader = () => {
-  const data = {
-    posts: [
-      {
-        id: 1,
-        title: "Post 1",
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      },
-      {
-        id: 2,
-        title: "Post 2",
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      },
-      {
-        id: 3,
-        title: "Post 3",
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      },
-    ],
-  };
-
-  return data;
+import { db } from "~/services/db";
+//fetching data with "function loader"
+export const loader = async () => {
+  //connect wirh db for DATA
+  const posts = await db.post.findMany();
+  return { posts };
 };
 
 export default function Index() {
@@ -45,7 +28,7 @@ export default function Index() {
         return (
           <div key={post.id}>
             <h3>{post.title}</h3>
-            <p>{post.content}</p>
+            <p>{post.body}</p>
           </div>
         );
       })}
