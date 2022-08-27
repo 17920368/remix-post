@@ -1,13 +1,12 @@
 import {
-  Link,
   Links,
+  Link,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import globalStyles from "~/styles/global.css";
 export const meta = () => ({
   charset: "utf-8",
   title: "First App",
@@ -15,22 +14,20 @@ export const meta = () => ({
 });
 function Layout() {
   return (
-    <>
+    <main>
       <header>
-        <h1>Remix</h1>
+        <h1>
+          <Link to="/posts"> Remix </Link>{" "}
+        </h1>
       </header>
       <Outlet />
       <footer>
         <small>@ Copyright 2022</small>
       </footer>
-    </>
+    </main>
   );
 }
 export const links = () => [
-  {
-    rel: "stylesheet",
-    href: globalStyles,
-  },
   {
     rel: "stylesheet",
     href: "https://cdn.simplecss.org/simple.min.css",
